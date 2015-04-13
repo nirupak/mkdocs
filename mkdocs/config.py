@@ -116,21 +116,21 @@ def validate_config(user_config):
     pages = []
     extra_css = []
     extra_javascript = []
-    for (dirpath, dirnames, filenames) in os.walk(config['docs_dir']):
-        for filename in sorted(filenames):
-            fullpath = os.path.join(dirpath, filename)
-            relpath = os.path.relpath(fullpath, config['docs_dir'])
-
-            if utils.is_markdown_file(filename):
-                # index pages should always be the first listed page.
-                if os.path.splitext(relpath)[0] == 'index':
-                    pages.insert(0, relpath)
-                else:
-                    pages.append(relpath)
-            elif utils.is_css_file(filename):
-                extra_css.append(relpath)
-            elif utils.is_javascript_file(filename):
-                extra_javascript.append(relpath)
+    # for (dirpath, dirnames, filenames) in os.walk(config['docs_dir']):
+#         for filename in sorted(filenames):
+#             fullpath = os.path.join(dirpath, filename)
+#             relpath = os.path.relpath(fullpath, config['docs_dir'])
+#
+#             if utils.is_markdown_file(filename):
+#                 # index pages should always be the first listed page.
+#                 if os.path.splitext(relpath)[0] == 'index':
+#                     pages.insert(0, relpath)
+#                 else:
+#                     pages.append(relpath)
+#             elif utils.is_css_file(filename):
+#                 extra_css.append(relpath)
+#             elif utils.is_javascript_file(filename):
+#                 extra_javascript.append(relpath)
 
     if config['pages'] is None:
         config['pages'] = pages
